@@ -1,0 +1,15 @@
+.rainbow-header {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(270deg, #ff0000, #ff9900, #ffff00, #33ff00, #00ffff, #3300ff, #9900ff, #ff0000);
+    background-size: 1400% 1400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 8s linear infinite;
+}
+
+@keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
