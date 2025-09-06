@@ -11,13 +11,13 @@
     }
 
     .marquee {
-        width: 100%;
+        width: 80%;
         overflow-x: visible; /* allow horizontal overflow */
         overflow-y: hidden;
         white-space: nowrap;
         box-sizing: border-box;
         text-align: center;
-        padding: 2vw 10vw; /* give horizontal space for animation! */
+        padding: 4vw 12vw; /* give horizontal space for animation! */
         position: relative;
     }
 
@@ -46,13 +46,13 @@
 
     @media (max-width: 100px) {
         .marquee {
-            padding: 2vw 2vw;
+            padding: 4vw 4vw;
         }
         .marquee span {
-            font-size: 8vw;
+            font-size: 6vw;
         }
     }
-    @media (max-width: 400px) {
+    @media (max-width: 100px) {
         .marquee span {
             font-size: 10vw;
         }
