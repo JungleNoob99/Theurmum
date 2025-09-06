@@ -5,50 +5,59 @@
     <title>Rainbow Alternating Header</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body {
-            margin: 0;
-            background: #111;
-        }
+    body {
+        margin: 0;
+        background: #111;
+    }
 
+    .marquee {
+        width: 100%;
+        overflow-x: visible; /* allow horizontal overflow */
+        overflow-y: hidden;
+        white-space: nowrap;
+        box-sizing: border-box;
+        text-align: center;
+        padding: 2vw 10vw; /* give horizontal space for animation! */
+        position: relative;
+    }
+
+    .marquee span {
+        display: inline-block;
+        font-weight: bold;
+        font-size: 6vw;
+        background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: 
+            alternateMove 1.5s ease-in-out infinite alternate,
+            rainbowShift 5s linear infinite;
+    }
+
+    @keyframes alternateMove {
+        0%   { transform: translateX(-5vw); }
+        100% { transform: translateX(5vw); }
+    }
+
+    @keyframes rainbowShift {
+        0%   { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+    }
+
+    @media (max-width: 600px) {
         .marquee {
-            width: 100%;
-            overflow: hidden;
-            white-space: nowrap;
-            box-sizing: border-box;
-            text-align: center;
-            padding: 2vw 0;
+            padding: 2vw 2vw;
         }
-
         .marquee span {
-            display: inline-block;
-            font-weight: bold;
-            font-size: 6vw; /* Responsive font size */
-            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);
-            background-size: 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: 
-                alternateMove 1.5s ease-in-out infinite alternate,
-                rainbowShift 5s linear infinite;
+            font-size: 8vw;
         }
-
-        @keyframes alternateMove {
-            0%   { transform: translateX(-5vw); }
-            100% { transform: translateX(5vw); }
+    }
+    @media (max-width: 400px) {
+        .marquee span {
+            font-size: 10vw;
         }
-
-        @keyframes rainbowShift {
-            0%   { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
-
-        /* Optional: Make sure header doesn't get clipped on really small screens */
-        @media (max-width: 400px) {
-            .marquee span {
-                font-size: 8vw;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
     <header class="marquee">
